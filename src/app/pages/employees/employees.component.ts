@@ -15,7 +15,7 @@ declare function init_plugins();
 })
 export class EmployeesComponent implements OnInit {
 
-  public empleados: Array<Employ>;
+  public empleados: any;
   public url: string;
   public defaultImg: any;
 
@@ -33,13 +33,10 @@ export class EmployeesComponent implements OnInit {
     this.employService.getEmploys().subscribe(
       resp => {
         this.empleados = resp.empleados;
-        console.log(this.empleados);
         for ( let i = 0; i < this.empleados.length; i++ ) {
-          console.log(this.empleados[i].img);
-          if ( this.empleados[i].img === undefined){
+          if ( this.empleados[i].img === undefined || this.empleados[i].img === null){
             this.empleados[i].img = this.defaultImg;
           }
-          console.log(this.empleados[i]);
         }
       }
     );

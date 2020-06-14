@@ -25,7 +25,8 @@ export class EmployService {
 
    addEmploy(employ): Observable<any> {
     const params = JSON.stringify(employ);
-    return this.http.post(this.url + 'crear-empleado', params);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url + 'crear-empleado', params, {headers: headers});
    }
 
    deleteEmploy(id): Observable<any>{

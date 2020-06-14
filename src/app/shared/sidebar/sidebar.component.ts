@@ -17,8 +17,6 @@ export class SidebarComponent implements OnInit {
         {titulo: 'Empleados', url: '/employees'},
         {titulo: 'Productos', url: '/products'},
         {titulo: 'Horarios', url: '/horario'},
-        // {titulo: 'Promesas', url: '/promesas'},
-        // {titulo: 'Rxjs', url: '/rxjs'}
       ]
     }
   ];

@@ -20,7 +20,9 @@ export class UsersService {
   }
 
   createUsers(user: User): Observable<any>{
-    return this.http.post(this.url + 'crear-usuario', JSON.stringify(user));
+    const params = JSON.stringify(user);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url + 'crear-usuario', params, {headers: headers});
   }
 
 }
