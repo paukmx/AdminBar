@@ -1,0 +1,163 @@
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Header -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- End Header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar -->
+    <!-- ============================================================== -->
+    <app-sidebar></app-sidebar>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form [formGroup]="form" (ngSubmit)="crearEmpleado()">
+                                <div class="form-body">
+                                    <h3 class="card-title">Información del nuevo Empleado</h3>
+                                    <hr>
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre <span class="text-danger">*</span></label>
+                                                <input formControlName="nombre" name="nombre" type="text" id="nombre" class="form-control" placeholder="Nombre del empleado">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Apellido <span class="text-danger">*</span></label>
+                                                <input formControlName="apellidos" name="apellidos" type="text" id="apellido" class="form-control" placeholder="Apellido del empleado"></div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Email <span class="text-danger">*</span></label>
+                                                <input formControlName="email" name="email" type="email" id="email" class="form-control" placeholder="Email del empleado"></div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Fecha de Nacimiento</label>
+                                                <input formControlName="edad" name="edad" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Telefono <span class="text-danger">*</span></label>
+                                                <input formControlName="telefono" name="telefono" type="text" id="telefono" class="form-control" placeholder="Telefono del empleado"></div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Rol <span class="text-danger">*</span></label>
+                                                <div class="form-check">
+                                                    <label class="custom-control custom-radio">
+                                                            <input id="radio1" name="radio" type="radio" value="USER_ROLE" checked class="custom-control-input" (change)="onItemChange($event.target.value)">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">Usuario</span>
+                                                        </label>
+                                                    <label class="custom-control custom-radio">
+                                                            <input id="radio2" name="radio" type="radio" value="ADMIN_ROLE" class="custom-control-input" (change)="onItemChange($event.target.value)">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">Administrador</span>
+                                                        </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Cargo <span class="text-danger">*</span></label>
+                                                <select class="form-control custom-select" data-placeholder="Escoge el puesto del empleado" tabindex="1">
+                                                    <option value="1">Gerente</option>
+                                                    <option value="2">Cocinero</option>
+                                                    <option value="3">Ayudante de cocina</option>
+                                                    <option value="4">Camarero barra</option>
+                                                    <option value="5">Camarero sala</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Credenciales del Empleado</h3>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="exampleInputuname">Usuario</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Introduzca el usuario">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd1">Contraseña</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                            <input type="password" class="form-control" id="pwd1" placeholder="Introduzca la contraseña">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd2">Confirmar Contraseña</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                            <input type="password" class="form-control" id="pwd2" placeholder="Repita la contraseña">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

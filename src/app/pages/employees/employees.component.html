@@ -1,0 +1,122 @@
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Header -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- End Header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar -->
+    <!-- ============================================================== -->
+    <app-sidebar></app-sidebar>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- .left-right-aside-column-->
+                        <div class="contact-page-aside">
+                            <div class="right-aside">
+                                <div class="right-page-header">
+                                    <div class="d-flex">
+                                        <div class="align-self-center">
+                                            <h4 class="card-title m-t-10">
+                                                Lista de Empleados
+                                            </h4>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <input type="text" id="demo-input-search2" placeholder="Buscar empleado" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="demo-foo-addrow" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                        <thead>
+                                            <tr>
+                                                <th>Nº</th>
+                                                <th>Nombre</th>
+                                                <th>Email</th>
+                                                <th>Telefono</th>
+                                                <th>Rol</th>
+                                                <th>Edad</th>
+                                                <th>Fecha de alta</th>
+                                                <th>Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Employees List-->
+                                        <tbody *ngFor="let empleado of empleados; index as i">
+                                            <tr>
+                                                <td>{{ i + 1 }}</td>
+                                                <td>
+                                                    <a [routerLink]="['profile',empleado._id]"><img style="width: 30px;" src="{{ empleado.img }}" alt="{{ empleado.nombre }}" class="img-circle" /> {{ empleado.nombre }} {{ empleado.apellidos }}</a>
+                                                </td>
+                                                <td>{{ empleado.email }}</td>
+                                                <td>{{ empleado.telefono }}</td>
+                                                <td>
+                                                    <span *ngIf="empleado.role == 'ADMIN_ROLE'" class="label label-danger">{{empleado.role}}</span>
+                                                    <span *ngIf="empleado.role == 'USER_ROLE'" class="label label-success">{{empleado.role}}</span>
+                                                </td>
+                                                <td>{{ empleado.edad }}</td>
+                                                <td>
+                                                    {{ empleado.fecha | amLocale: "es" | amDateFormat: "DD-MM-YYYY" }}
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" (click)="eliminarEmpleado(empleado._id)">
+                                                    <i class="ti-close" aria-hidden="true"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <!-- End Employees List-->
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <button type="submit" class="btn btn-info btn-rounded" [routerLink]="['/add-employe']">Añadir Nuevo Empleado </button>
+                                                </td>
+                                                <td colspan="7 ">
+                                                    <div class="text-right ">
+                                                        <ul class="pagination "></ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- .left-aside-column-->
+                            </div>
+                            <!-- /.left-right-aside-column-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
