@@ -54,7 +54,7 @@ eliminarEmpleado(id){
     if (willDelete) {
       this.employService.deleteEmploy(id).subscribe(
         resp => {
-          swal('El articulo ha sido borrado!', {
+          swal('El empleado ha sido borrado!', {
             icon: 'success',
           });
           this.obtenerEmpleados();

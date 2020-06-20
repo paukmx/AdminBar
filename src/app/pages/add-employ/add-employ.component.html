@@ -63,8 +63,8 @@
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Fecha de Nacimiento</label>
-                                                <input formControlName="edad" name="edad" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                                <label class="control-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
+                                                <input formControlName="edad" name="edad" type="date" class="form-control" placeholder="dd/mm/yyyy" required>
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -72,9 +72,9 @@
                                     <!--/row-->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group" [ngClass]="{'has-success': form.get('telefono').valid}">
+                                            <div class="form-group">
                                                 <label class="control-label">Telefono <span class="text-danger">*</span></label>
-                                                <input formControlName="telefono" name="telefono" type="number" id="telefono" class="form-control" placeholder="Telefono del empleado" required></div>
+                                                <input formControlName="telefono" name="telefono" type="number" id="telefono" class="form-control" placeholder="Telefono del empleado" required minlength="9"></div>
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-6">
@@ -98,9 +98,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <div class="form-group has-success">
                                                 <label class="control-label">Cargo <span class="text-danger">*</span></label>
-                                                <select class="form-control custom-select" data-placeholder="Escoge el puesto del empleado" tabindex="1" (change)="onCargoChange($event.target.value)">
+                                                <select class="form-control custom-select" data-placeholder="Escoge el puesto del empleado" (change)="onCargoChange($event.target.value)">
                                                     <option value="Gerente">Gerente</option>
                                                     <option value="Cocinero">Cocinero</option>
                                                     <option value="Ayudante de cocina">Ayudante de cocina</option>
@@ -116,21 +116,21 @@
                                         <label for="exampleInputuname">Usuario</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="ti-user"></i></div>
-                                            <input type="text" class="form-control" formControlName="usuario" name="usuario" id="usuario" placeholder="Introduzca el usuario">
+                                            <input formControlName="usuario" name="usuario" type="text" id="usuario" class="form-control" placeholder="Introduzca el usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd1">Contraseña</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="ti-lock"></i></div>
-                                            <input type="password" class="form-control" formControlName="pass1" name="pass1" id="pass1" placeholder="Introduzca la contraseña">
+                                            <input type="password" class="form-control" formControlName="pass1" name="pass1" id="pass1" placeholder="Introduzca la contraseña" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd2">Confirmar Contraseña</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="ti-lock"></i></div>
-                                            <input type="password" class="form-control" formControlName="pass2" name="pass2" id="pass2" placeholder="Repita la contraseña">
+                                            <input type="password" class="form-control" formControlName="pass2" name="pass2" id="pass2" placeholder="Repita la contraseña" required>
                                         </div>
                                     </div>
                                     <div class="row">

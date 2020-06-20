@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employ } from 'src/app/models/employ.model';
 import { EmployService } from 'src/app/services/employ.service';
-import { UsersService } from '../../services/users.service';
-import { User } from 'src/app/models/user.model';
+import swal from 'sweetalert';
 
 declare function init_plugins();
 
@@ -20,7 +19,7 @@ export class AddEmployComponent implements OnInit {
   cargo: string;
   id: string;
 
-  constructor( private employService: EmployService, private usersService: UsersService ) {
+  constructor( private employService: EmployService ) {
     this.role = 'USER_ROLE';
     this.cargo = 'Gerente';
   }
@@ -51,6 +50,8 @@ export class AddEmployComponent implements OnInit {
       this.form.value.nombre,
       this.form.value.apellidos,
       this.form.value.email,
+      this.form.value.usuario,
+      this.form.value.pass1,
       this.form.value.telefono,
       this.role,
       showAge,
@@ -58,27 +59,30 @@ export class AddEmployComponent implements OnInit {
       null,
 
     );
-    console.log(employ);
 
-    this.employService.addEmploy(employ)
-      .subscribe( resp => {
-        console.log(resp);
-        this.id = resp.empleado._id;
-        // let user = new User(
-        //   this.form.value.usuario,
-        //   this.form.value.pass1,
-        //   this.id
-        // );
-      //   console.log(user);
+    swal({
+      title: '¿Esta seguro?',
+      text: '¿Esta seguro de que desea añadir un usuario con estos datos?',
+      icon: 'warning',
+      buttons: ['cancelar', 'aceptar'],
+      dangerMode: true,
+    })
+    .then((willCreate) => {
+      if (willCreate) {
 
-      //   this.usersService.createUsers(user)
-      //     .subscribe( resp => {
-      //       console.log(resp);
-      //     });
-
+        this.employService.addEmploy(employ)
+          .subscribe( resp => {
+            console.log(resp);
+            this.id = resp.empleado._id;
        });
+        swal('El usuario a sido creado correctamente!', {
+          icon: 'success',
+        });
 
-    
+      } else {
+        swal('Usuario no creado');
+      }
+    });
   }
 
   // Obtenemos el rol del usuario/empleado

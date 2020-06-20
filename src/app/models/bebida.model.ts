@@ -1,4 +1,4 @@
-export class Refresco {
+export class Bebida {
     constructor(
         public nombre: string,
         public categoria: string,

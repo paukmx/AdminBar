@@ -1,2 +1,105 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
+<app-sidebar>
+</app-sidebar>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Header -->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- End Header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar -->
+    <!-- ============================================================== -->
+    <app-sidebar></app-sidebar>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Stats box -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card bg-info">
+                        <div class="card-body">
+                            <div class="d-flex no-block">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff-w.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-white m-t-10 m-b-0">Empleados</h6>
+                                    <h2 class="m-t-0 text-white">{{empleados}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card bg-success">
+                        <div class="card-body">
+                            <div class="d-flex no-block">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/expense-w.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-white m-t-10 m-b-0">Stock Bebidas</h6>
+                                    <h2 class="m-t-0 text-white">{{totalStock}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="d-flex no-block">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/assets-w.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-white m-t-10 m-b-0">Total Assets</h6>
+                                    <h2 class="m-t-0 text-white">987,563</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card bg-danger">
+                        <div class="card-body">
+                            <div class="d-flex no-block">
+                                <div class="m-r-20 align-self-center"><img src="../assets/images/icon/staff-w.png" alt="Income" /></div>
+                                <div class="align-self-center">
+                                    <h6 class="text-white m-t-10 m-b-0">Total Staff</h6>
+                                    <h2 class="m-t-0 text-white">987,563</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right panel -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Page Content -->
+            <!-- ============================================================== -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BebidasService {
+export class ProductosService {
 
   public url: string;
 
@@ -14,7 +14,7 @@ export class BebidasService {
     this.url = Global.url;
    }
 
-   getRefrescos(): Observable<any>{
+   getProductos(): Observable<any>{
      return this.http.get(this.url + 'producto');
    }
 }

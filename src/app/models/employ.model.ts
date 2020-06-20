@@ -3,6 +3,8 @@ export class Employ {
     public nombre: string,
     public apellidos: string,
     public email: string,
+    public usuario: string,
+    public password: string,
     public telefono: number,
     public role: string,
     public edad: number,

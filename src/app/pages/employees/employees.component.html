@@ -51,6 +51,7 @@
                                             <tr>
                                                 <th>Nº</th>
                                                 <th>Nombre</th>
+                                                <th>Usuario</th>
                                                 <th>Email</th>
                                                 <th>Telefono</th>
                                                 <th>Rol</th>
@@ -66,6 +67,7 @@
                                                 <td>
                                                     <a [routerLink]="['profile',empleado._id]"><img style="width: 30px;" src="{{ empleado.img }}" alt="{{ empleado.nombre }}" class="img-circle" /> {{ empleado.nombre }} {{ empleado.apellidos }}</a>
                                                 </td>
+                                                <td>{{ empleado.usuario }}</td>
                                                 <td>{{ empleado.email }}</td>
                                                 <td>{{ empleado.telefono }}</td>
                                                 <td>
